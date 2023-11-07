@@ -8,7 +8,7 @@ describe('Swag Labs Login Scenarios', () => {
 
   beforeEach( function () {
 
-    cy.visit("https://www.saucedemo.com/")
+    cy.visit("/")
 
   })
 
