@@ -63,9 +63,9 @@ describe('Swag Labs Login Scenarios', () => {
 })
 
   
-it('Login with valid username and empty password', function () {
+  after('Login with valid password and empty username', function () {
   cy.fixture('Fix1').then((fixvar) => {
-  Li.setUserName(fixvar.password)
+  Li.setPassword(fixvar.password)
   Li.clickLogin()
 })
 })

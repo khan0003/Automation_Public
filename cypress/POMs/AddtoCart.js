@@ -39,7 +39,7 @@ class Cart {
 
      checkOut() {
         cy.get("#checkout").click()
-        cy.get(".title",).should('have.text', 'Checkout: Your Information')
+        cy.get(".title").should('have.text', 'Checkout: Your Information')
   }
 
 }

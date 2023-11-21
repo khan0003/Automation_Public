@@ -4,7 +4,7 @@ import Cart from '../POMs/AddtoCart'
 
 const atc = new Cart()
 
-describe('Inventory', () => {
+describe('Add to Cart', () => {
 
   beforeEach( "Login to Swaglabs" , function () {
     
