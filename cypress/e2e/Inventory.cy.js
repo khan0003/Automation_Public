@@ -32,13 +32,12 @@ describe('Inventory', () => {
       inv.removeProduct()
     })
 
-
-    it("Verifying multiple item in Cart" , () => {
+    it("Checking functionality of back button" , () => {
 
       inv.backButton()
     })
 
-    it("verifying the count in Cart" , () => {
+    it("Verifying the count increase in Cart" , () => {
 
       inv.countIncrease()
     })
@@ -47,7 +46,6 @@ describe('Inventory', () => {
 
       inv.countDecrease()
     })
-
     
   })
 

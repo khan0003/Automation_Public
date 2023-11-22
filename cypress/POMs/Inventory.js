@@ -42,21 +42,27 @@ class Inventory {
     backButton() {
 
         cy.get("#item_4_title_link").click()
+        cy.wait(4000)
         cy.get("#back-to-products").click()
+        cy.wait(4000)
         cy.get(".title").should('have.text', 'Products')
     }
 
     countIncrease() {
 
         cy.get("#add-to-cart-sauce-labs-backpack").click()
+        cy.wait(4000)
         cy.get("#add-to-cart-sauce-labs-bike-light").click()
+        cy.wait(4000)
         cy.get(".shopping_cart_badge").should('have.text', '2')
     }
 
     countDecrease() {
 
         cy.get("#add-to-cart-sauce-labs-backpack").click()
+        cy.wait(4000)
         cy.get("#remove-sauce-labs-backpack").click()
+        cy.wait(4000)
         cy.get(".shopping_cart_badge").should('not.exist')
     }
     
