@@ -33,7 +33,6 @@ describe('Inventory', () => {
     })
 
     it("Checking functionality of back button" , () => {
-
       inv.backButton()
     })
 
