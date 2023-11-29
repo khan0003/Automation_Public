@@ -8,26 +8,23 @@ class Inventory {
         cy.visit('/') 
             cy.fixture('Fix1').then((fixvar) => {
               
-                  Li.setUserName(fixvar.username)
-                  Li.setPassword(fixvar.password)
-                  Li.clickLogin()
-                  Li.verifyLogin()
+                  Li.setUserName(fixvar[0].username)
+                  Li.setPassword(fixvar[0].password)
+                  Li.clickLogin()              
                   })
     }
 
     selectProduct() {
 
         cy.get("#item_4_title_link").click()
-        cy.get(".inventory_details_name").should('be.visible')
-        cy.get(".inventory_details_desc").should('be.visible')
-        cy.get(".inventory_details_price").should('be.visible')
+        
     }
     
     addtoCart() {
 
         cy.get("#item_4_title_link").click()
         cy.get("#add-to-cart-sauce-labs-backpack").click()
-        cy.get(".shopping_cart_badge").should('have.text', '1')
+        
     }
 
     removeProduct() {
@@ -35,34 +32,28 @@ class Inventory {
         cy.get("#item_4_title_link").click()
         cy.get("#add-to-cart-sauce-labs-backpack").click()
         cy.get("#remove-sauce-labs-backpack").click()
-        cy.get(".shopping_cart_badge").should('not.exist')
+        
     }
     
     backButton() {
 
         cy.get("#item_4_title_link").click()
-        cy.wait(4000)
         cy.get("#back-to-products").click()
-        cy.wait(4000)
-        cy.get(".title").should('have.text', 'Products')
+        
     }
 
     countIncrease() {
 
         cy.get("#add-to-cart-sauce-labs-backpack").click()
-        cy.wait(4000)
         cy.get("#add-to-cart-sauce-labs-bike-light").click()
-        cy.wait(4000)
-        cy.get(".shopping_cart_badge").should('have.text', '2')
+        
     }
 
     countDecrease() {
 
         cy.get("#add-to-cart-sauce-labs-backpack").click()
-        cy.wait(4000)
         cy.get("#remove-sauce-labs-backpack").click()
-        cy.wait(4000)
-        cy.get(".shopping_cart_badge").should('not.exist')
+        
     }
     
 

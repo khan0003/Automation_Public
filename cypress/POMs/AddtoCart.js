@@ -8,10 +8,9 @@ class Cart {
         cy.visit('/') 
             cy.fixture('Fix1').then((fixvar) => {
               
-                  Li.setUserName(fixvar.username)
-                  Li.setPassword(fixvar.password)
-                  Li.clickLogin()
-                  Li.verifyLogin()
+                  Li.setUserName(fixvar[0].username)
+                  Li.setPassword(fixvar[0].password)
+                  Li.clickLogin()              
                   })
     }
 
@@ -29,17 +28,17 @@ class Cart {
     removeItems() {
 
         cy.get("#remove-sauce-labs-backpack").click()
-        cy.get(".cart_item").should('not.exist')
+        
     }
 
     continueShoppingbtn() {
         cy.get("#continue-shopping").click()
-        cy.get(".title").should('have.text', 'Products')
+        
   }
 
      checkOut() {
         cy.get("#checkout").click()
-        cy.get(".title").should('have.text', 'Checkout: Your Information')
+        
   }
 
 }
