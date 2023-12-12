@@ -16,11 +16,6 @@ class Login {
         cy.get('#login-button').click()
     }
 
-    verifyLogin()
-    {
-        cy.location('href').should('contain', 'inventory')
-    }
-
 }
 
 export default Login;

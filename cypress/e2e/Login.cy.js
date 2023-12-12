@@ -15,18 +15,18 @@ describe('Swag Labs Login Scenarios', () => {
     it("Login with valid Credentials", () => {
     cy.fixture('Fix1').then((fixvar) => {
 
-    Li.setUserName(fixvar.username)
-    Li.setPassword(fixvar.password)
+    Li.setUserName(fixvar[0].username)
+    Li.setPassword(fixvar[0].password)
     Li.clickLogin()
-    Li.verifyLogin()
+    cy.location('href').should('contain', 'inventory')
     })
   })
   
 
   it('Login with invalid username and valid password', function () {
     cy.fixture('Fix1').then((fixvar) => {
-    Li.setUserName(fixvar.invalidUsername)
-    Li.setPassword(fixvar.password)
+    Li.setUserName(fixvar[1].invalidUsername)
+    Li.setPassword(fixvar[0].password)
     Li.clickLogin()
   })
 })
@@ -34,8 +34,8 @@ describe('Swag Labs Login Scenarios', () => {
 
   it('Login with valid username and invalid password', function () {
     cy.fixture('Fix1').then((fixvar) => {
-    Li.setUserName(fixvar.username)
-    Li.setPassword(fixvar.invalidPassword)
+    Li.setUserName(fixvar[0].username)
+    Li.setPassword(fixvar[1].invalidPassword)
     Li.clickLogin()
   })
 })
@@ -43,8 +43,8 @@ describe('Swag Labs Login Scenarios', () => {
 
   it('Login with valid username and invalid password', function () {
     cy.fixture('Fix1').then((fixvar) => {
-    Li.setUserName(fixvar.invalidUsername)
-    Li.setPassword(fixvar.invalidPassword)
+    Li.setUserName(fixvar[1].invalidUsername)
+    Li.setPassword(fixvar[1].invalidPassword)
     Li.clickLogin()
   })
 })
@@ -57,7 +57,7 @@ describe('Swag Labs Login Scenarios', () => {
   
   it('Login with valid username and empty password', function () {
     cy.fixture('Fix1').then((fixvar) => {
-    Li.setUserName(fixvar.username)
+    Li.setUserName(fixvar[0].username)
     Li.clickLogin()
   })
 })
@@ -65,7 +65,7 @@ describe('Swag Labs Login Scenarios', () => {
   
   after('Login with valid password and empty username', function () {
   cy.fixture('Fix1').then((fixvar) => {
-  Li.setPassword(fixvar.password)
+  Li.setPassword(fixvar[0].password)
   Li.clickLogin()
 })
 })
